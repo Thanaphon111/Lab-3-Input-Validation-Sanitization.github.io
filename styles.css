@@ -1,0 +1,360 @@
+/*
+ * GENERAL STYLES & VARIABLES
+ */
+:root {
+    --primary-color: #1a5e3a;
+    --secondary-color: #27ae60;
+    --tertiary-color: #b1d8b7;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --bg-light: #f1f8f3;
+    --bg-dark: #2e433a;
+    --border-color: #189435;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --hover-bg: #a0e6ae;
+    --success-green: #2ecc71;
+    --error-red: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 12px 24px var(--shadow-color);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/*
+ * HEADER & TYPOGRAPHY
+ */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    font-weight: 900;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/*
+ * MAIN LAYOUT
+ */
+.main-flex {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.main-left, .main-right {
+    flex: 1;
+    min-width: 0;
+}
+
+/*
+ * CARD COMPONENTS
+ */
+.card {
+    background: var(--hover-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid var(--primary-color);
+    opacity: 0.2;
+    margin: 15px 0 25px 0;
+}
+
+/*
+ * FORM STYLES
+ */
+.form-container, .results-container {
+    padding: 30px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h2, .results-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #fdfdfd;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.2);
+}
+
+input.valid {
+    border-color: var(--success-green);
+    background-color: #f6ffec;
+}
+
+input.invalid {
+    border-color: var(--error-red);
+    background-color: #fff2f2;
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 14px;
+    margin-top: 8px;
+    display: block;
+    min-height: 20px;
+}
+
+.password-requirements {
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.password-requirements p {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.password-requirements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.password-requirements li {
+    padding: 6px 0;
+    color: var(--text-dark);
+    position: relative;
+    padding-left: 30px;
+    font-size: 0.95rem;
+}
+
+.password-requirements li::before {
+    content: '✖';
+    position: absolute;
+    left: 0;
+    color: var(--error-red);
+    font-size: 18px;
+}
+
+.password-requirements li.valid::before {
+    content: '✔';
+    color: var(--success-green);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #1a5e3a 0%, #27ae60 100%);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(26, 94, 58, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(26, 94, 58, 0.3);
+}
+
+.btn-secondary {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+    background: var(--tertiary-color);
+    color: var(--text-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.results-box {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 120px;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.results-box h4 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.validation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.validation-item:last-child {
+    border-bottom: none;
+}
+
+.validation-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.validation-status.valid {
+    background: var(--hover-bg);
+    color: var(--success-green);
+}
+
+.validation-status.invalid {
+    background: #fff1f0;
+    color: var(--error-red);
+}
+
+.sanitization-demo {
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+footer {
+    text-align: center;
+    color: var(--primary-color);
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .main-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .main-left, .main-right {
+        min-width: 0;
+    }
+    .container {
+        padding: 25px;
+    }
+    header h1 {
+        font-size: 2.2rem;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3: Input Validation & Sanitization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🔒 Lab 3: Input Validation & Sanitization</h1>
+            <p>ทดสอบการตรวจสอบและทำความสะอาดข้อมูลที่ผู้ใช้ป้อน</p>
+        </header>
+        <main>
+            <div class="main-flex">
+                <div class="main-left">
+                    <section class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📝</span>
+                            <span class="card-title">Registration Form</span>
+                        </div>
+                        <hr class="divider">
+                        <form id="registrationForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" id="username" name="username" required>
+                                    <span class="error-message" id="username-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
+                                    <span class="error-message" id="email-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password">Password:</label>
+                                    <input type="password" id="password" name="password" required>
+                                    <span class="error-message" id="password-error"></span>
+                                    <div class="password-requirements">
+                                        <p>Password must contain:</p>
+                                        <ul>
+                                            <li id="length-check">At least 8 characters</li>
+                                            <li id="uppercase-check">1 uppercase letter</li>
+                                            <li id="lowercase-check">1 lowercase letter</li>
+                                            <li id="number-check">1 number</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm Password:</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                    <span class="error-message" id="confirmPassword-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number:</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                    <span class="error-message" id="phone-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age:</label>
+                                    <input type="number" id="age" name="age" min="1" max="120" required>
+                                    <span class="error-message" id="age-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="website">Website URL:</label>
+                                    <input type="url" id="website" name="website">
+                                    <span class="error-message" id="website-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio (with HTML sanitization test):</label>
+                                    <textarea id="bio" name="bio" rows="4" placeholder="Try entering: <script>alert('XSS')</script> or <img src=x onerror=alert('XSS')>"></textarea>
+                                    <span class="error-message" id="bio-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="terms" name="terms" required>
+                                        I agree to the terms and conditions
+                                    </label>
+                                    <span class="error-message" id="terms-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <button type="button" class="btn btn-secondary" id="clearForm">Clear Form</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                <div class="main-right">
+                    <section class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📊</span>
+                            <span class="card-title">Validation Results</span>
+                        </div>
+                        <hr class="divider">
+                        <div id="validationResults" class="results-box">
+                            <p>Fill out the form to see validation results...</p>
+                        </div>
+                    </section>
+                    <section class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🧹</span>
+                            <span class="card-title">Sanitization Test</span>
+                        </div>
+                        <hr class="divider">
+                        <div id="sanitizationResults" class="results-box">
+                            <p>Enter HTML in the bio field to see sanitization in action...</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>🔍 This lab demonstrates client-side input validation and sanitization techniques</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
